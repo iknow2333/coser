@@ -23,13 +23,10 @@ RUN sudo chown -R coder:coder /home/coder/.local
 # -----------
 
 #java
-RUN sudo mkdir /usr/local/java
-ADD OpenJDK17U-jdk_x64_linux_hotspot_17.0.6_10.tar.gz /usr/local/java
-RUN ln -s /usr/local/java/jdk17.0.6_10 /usr/local/java/jdk 
-ENV JAVA_HOME /usr/local/java/jdk 
-ENV JRE_HOME ${JAVA_HOME}/jre 
-ENV CLASSPATH .:${JAVA_HOME}/lib:${JRE_HOME}/lib 
-ENV PATH ${JAVA_HOME}/bin:$PATH 
+ADD jdk-8u181-linux-x64.tar.gz /opt/jdk
+ENV JAVA_HOME /opt/jdk/jdk1.8.0_181
+ENV CLASSPATH $JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
+ENV PATH $PATH:$JAVA_HOME/bin
 
 # Install a VS Code extension:
 # Note: we use a different marketplace than VS Code. See https://github.com/cdr/code-server/blob/main/docs/FAQ.md#differences-compared-to-vs-code
