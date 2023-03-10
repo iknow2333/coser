@@ -23,7 +23,7 @@ RUN sudo chown -R coder:coder /home/coder/.local
 # -----------
 
 #java
-RUN mkdir /usr/local/java
+RUN sudo mkdir /usr/local/java
 ADD jdk-8u181-linux-x64.tar.gz /usr/local/java
 RUN ln -s /usr/local/java/jdk1.8.0_181 /usr/local/java/jdk 
 ENV JAVA_HOME /usr/local/java/jdk 
