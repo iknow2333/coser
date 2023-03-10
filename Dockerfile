@@ -24,8 +24,8 @@ RUN sudo chown -R coder:coder /home/coder/.local
 
 #java
 RUN sudo mkdir /usr/local/java
-ADD jdk-8u181-linux-x64.tar.gz /usr/local/java
-RUN ln -s /usr/local/java/jdk1.8.0_181 /usr/local/java/jdk 
+ADD OpenJDK17U-jdk_x64_linux_hotspot_17.0.6_10.tar.gz /usr/local/java
+RUN ln -s /usr/local/java/jdk17.0.6_10 /usr/local/java/jdk 
 ENV JAVA_HOME /usr/local/java/jdk 
 ENV JRE_HOME ${JAVA_HOME}/jre 
 ENV CLASSPATH .:${JAVA_HOME}/lib:${JRE_HOME}/lib 
