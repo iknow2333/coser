@@ -3,6 +3,23 @@ FROM codercom/code-server:4.10.1
 
 USER coder
 
+RUN apt-get update && \
+    apt-get install -y openjdk-8-jdk && \
+    apt-get clean;
+
+# 修复证书问题
+RUN apt-get update && \
+    apt-get install ca-certificates-java && \
+    apt-get clean && \
+    update-ca-certificates -f;
+
+# 设置环境变量
+ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64/
+RUN export JAVA_HOME
+ENV PATH $PATH:$JAVA_HOME/bin
+RUN export PATH
+
+
 # Apply VS Code settings
 COPY deploy-container/settings.json .local/share/code-server/User/settings.json
 
