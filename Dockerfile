@@ -3,15 +3,9 @@ FROM codercom/code-server:4.10.1
 
 USER coder
 
-RUN apt-get update && \
-    apt-get install -y openjdk-8-jdk && \
-    apt-get clean;
-
-# 修复证书问题
-RUN apt-get update && \
-    apt-get install ca-certificates-java && \
-    apt-get clean && \
-    update-ca-certificates -f;
+RUN sudo apt-get update && \
+    sudo apt-get install -y openjdk-8-jdk && \
+    sudo apt-get clean;
 
 # 设置环境变量
 ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64/
