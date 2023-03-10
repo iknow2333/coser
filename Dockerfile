@@ -13,8 +13,8 @@ ENV SHELL=/bin/bash
 RUN sudo apt-get update && sudo apt-get install unzip -y
 RUN curl https://rclone.org/install.sh | sudo bash
 
-RUN sudo apt install default-jre
-RUN sudo apt-get install build-essential gdb
+RUN sh -c '/bin/echo -e "y" | sudo apt install default-jre
+RUN sh -c '/bin/echo -e "y" | sudo apt-get install build-essential gdb
 
 # Copy rclone tasks to /tmp, to potentially be used
 COPY deploy-container/rclone-tasks.json /tmp/rclone-tasks.json
