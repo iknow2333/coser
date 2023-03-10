@@ -1,5 +1,6 @@
 # Start from the code-server Debian base image
 FROM codercom/code-server:4.10.1
+FROM openjdk:8-jdk
 
 USER coder
 
