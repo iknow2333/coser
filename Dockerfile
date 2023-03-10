@@ -22,6 +22,15 @@ RUN sudo chown -R coder:coder /home/coder/.local
 # You can add custom software and dependencies for your environment below
 # -----------
 
+#java
+RUN mkdir /usr/local/java
+ADD jdk-8u181-linux-x64.tar.gz /usr/local/java
+RUN ln -s /usr/local/java/jdk1.8.0_181 /usr/local/java/jdk 
+ENV JAVA_HOME /usr/local/java/jdk 
+ENV JRE_HOME ${JAVA_HOME}/jre 
+ENV CLASSPATH .:${JAVA_HOME}/lib:${JRE_HOME}/lib 
+ENV PATH ${JAVA_HOME}/bin:$PATH 
+
 # Install a VS Code extension:
 # Note: we use a different marketplace than VS Code. See https://github.com/cdr/code-server/blob/main/docs/FAQ.md#differences-compared-to-vs-code
 # RUN code-server --install-extension esbenp.prettier-vscode
