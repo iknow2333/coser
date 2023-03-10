@@ -1,6 +1,5 @@
 # Start from the code-server Debian base image
 FROM codercom/code-server:4.10.1
-FROM openjdk:8-jdk
 
 USER coder
 
@@ -9,7 +8,6 @@ COPY deploy-container/settings.json .local/share/code-server/User/settings.json
 
 # Use bash shell
 ENV SHELL=/bin/bash
-USER coder
 
 # Install unzip + rclone (support for remote filesystem)
 RUN sudo apt-get update && sudo apt-get install unzip -y
