@@ -23,8 +23,7 @@ RUN sudo chown -R coder:coder /home/coder/.local
 # -----------
 
 
-ADD https://github.com/adoptium/temurin17-binaries/releases/download/jdk-17.0.6+10/OpenJDK17U-jdk_x64_linux_hotspot_17.0.6_10.tar.gz /usr/lib/jvm
-RUN tar -xzf /usr/lib/jvm/OpenJDK17U-jdk_x64_linux_hotspot_17.0.6_10.tar.gz -C /usr/lib/jvm
+RUN sh -c '/bin/echo -e "y\n" | sudo apt install default-jre'
 #配置环境变量
 ENV JAVA_HOME=/usr/lib/jvm/jdk-17.0.6+10/bin
 
