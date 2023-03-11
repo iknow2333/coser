@@ -25,7 +25,10 @@ RUN sudo chown -R coder:coder /home/coder/.local
 
 RUN sh -c '/bin/echo -e "y\n" | sudo apt install default-jre'
 #配置环境变量
-ENV JAVA_HOME=/usr/lib/jvm/jdk-17.0.6+10/bin
+ENV JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64/bin/java
+
+RUN sh -c '/bin/echo -e "y\n" | sudo apt install pip'
+RUN sh -c '/bin/echo -e "y\n" | sudo apt install python'
 
 # Install a VS Code extension:
 # Note: we use a different marketplace than VS Code. See https://github.com/cdr/code-server/blob/main/docs/FAQ.md#differences-compared-to-vs-code
