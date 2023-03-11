@@ -24,9 +24,16 @@ RUN sudo chown -R coder:coder /home/coder/.local
 
 #java
 
-ADD https://github.com/adoptium/temurin17-binaries/releases/download/jdk-17.0.6+10/OpenJDK17U-jdk_x64_linux_hotspot_17.0.6_10.tar.gz /usr/lib/jvm
-RUN cd /usr/lib/jvm /
-    && tar -xzf OpenJDK17U-jdk_x64_linux_hotspot_17.0.6_10.tar.gz
+RUN apk add --no-cache \
+        bash \
+        curl \
+        wget \
+        gcc \
+        g++ \
+        ca-certificates \
+        openssh \ 
+        libffi-dev \
+        default-jre
  
 #配置环境变量
 ENV JAVA_HOME=/usr/lib/jvm/jdk-17.0.6+10/bin
